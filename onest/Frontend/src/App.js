@@ -5,6 +5,7 @@ import InputWeather from './components/inputWeather';
 import {
   BrowserRouter,
 } from 'react-router-dom';
+// import ViewData from './components/viewData';
 
 function App() {
   return (
@@ -19,10 +20,11 @@ function App() {
           <InputUEN></InputUEN>
           <InputWeather></InputWeather>
         </header>
+        {/* <ViewData/> */}
       </div>
       
     </BrowserRouter>
   );
-}
+};
 
 export default App;

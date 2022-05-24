@@ -5,8 +5,13 @@ function InputUEN () {
 
     const [uen, setUEN] = useState();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = async () => {
+        console.log('handleSubmit:');
+        setUEN(uen);
+    };
+
+    const handleInput = (e) => {
+        // const {name, value} = e.target;
         setUEN();
     };
 
@@ -26,7 +31,7 @@ function InputUEN () {
                 type='text'
                 placeholder='Enter your UEN number'
                 value={uen}
-                // onChange={}
+                onChange={handleInput}
                 />
                 <button
                 className='button'

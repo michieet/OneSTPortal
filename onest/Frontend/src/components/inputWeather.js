@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import twoHrWeatherData from '../api/twoHrWeatherData';
+import ViewData from '../components/viewData';
 // import oneDayWeatherData from '../api/oneDayWeatherData';
 // import fourDaysWeatherData from '../api/fourDaysWeatherData';
 
@@ -23,8 +24,8 @@ function InputWeather () {
         setLocation(location);
     };
 
-    const handleInput = e => {
-        const {name, value} = e.target;
+    const handleInput = () => {
+        // const {name, value} = e.target;
         setLocation();
     };
 
@@ -41,7 +42,7 @@ function InputWeather () {
                 className='inputField'
                 type='text'
                 placeholder='Enter location'
-                value={location}
+                value={weatherData}
                 onChange={handleInput}
                 />
                 <button
@@ -49,6 +50,7 @@ function InputWeather () {
                 onClick={handleSubmit}
                 >Submit</button>
             </form>
+            
         </div>
     )
 };
