@@ -54,5 +54,3 @@ export default function InputWeather () {
         </div>
     )
 };
-
-// export default InputWeather;
