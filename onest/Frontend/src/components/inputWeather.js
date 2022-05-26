@@ -26,7 +26,6 @@ export default function InputWeather () {
     };
 
     const handleInput = () => {
-        // const {name, value} = e.target;
         setLocation();
     };
 

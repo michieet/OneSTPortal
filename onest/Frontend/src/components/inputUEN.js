@@ -1,4 +1,3 @@
-// import axios from 'axios';
 import { useState } from 'react';
 
 function InputUEN () {
@@ -11,7 +10,6 @@ function InputUEN () {
     };
 
     const handleInput = (e) => {
-        // const {name, value} = e.target;
         setUEN();
     };
 
