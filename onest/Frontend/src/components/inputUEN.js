@@ -13,9 +13,9 @@ function InputUEN () {
         setUEN();
     };
 
-    function validateUEN() {
-        let uen = document.forms['form']['fname'].value;
-        if (uen === "") {
+    function validateUEN(value) {
+        let isUen = /((S|T)([a-zA-Z0-9]{9})|([0-3])(\d{8})([A-Z]))/g;
+        if (value && !isUen.test(value)) {
             alert("UEN form must be filled");
             return false;
         }

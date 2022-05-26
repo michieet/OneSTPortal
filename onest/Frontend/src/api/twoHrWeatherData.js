@@ -1,8 +1,8 @@
 import axios from 'axios';
 // const axios = require('axios');
 
-const weatherData = axios.create({
-    baseURL: 'https://api.data.gov.sg/v1'
+const twoHrWeatherData = axios.create({
+    baseURL: 'https://api.data.gov.sg/v1/environment/2-hour-weather-forecast'
 });
 
-export default weatherData;
+export default twoHrWeatherData;

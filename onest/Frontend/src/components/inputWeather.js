@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import weatherData from '../api/twoHrWeatherData';
-import ViewData from '../components/viewData';
+import twoHrWeatherData from '../api/twoHrWeatherData';
+// import ViewData from '../components/viewData';
 // import oneDayWeatherData from '../api/oneDayWeatherData';
 // import fourDaysWeatherData from '../api/fourDaysWeatherData';
 
@@ -10,7 +10,7 @@ export default function InputWeather () {
     const [weatherData, setWeatherData] = useState([]);
 
     const apiGetDetails = async () => {
-        const {status, data} = await weatherData.get(`/environment/2-hour-weather-forecast`);
+        const {status, data} = await weatherData.get(`${twoHrWeatherData}`);
         console.log(weatherData);
         if (status === 200) {
             console.log('apiGetDetails', data);
@@ -37,7 +37,7 @@ export default function InputWeather () {
 
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input
                 className='inputField'
                 type='text'
@@ -47,7 +47,7 @@ export default function InputWeather () {
                 />
                 <button
                 className='button'
-                onClick={handleSubmit}
+                // onClick={handleSubmit}
                 >Submit</button>
             </form>
             
