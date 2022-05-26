@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
-import twoHrWeatherData from '../api/twoHrWeatherData';
+import weatherData from '../api/twoHrWeatherData';
 import ViewData from '../components/viewData';
 // import oneDayWeatherData from '../api/oneDayWeatherData';
 // import fourDaysWeatherData from '../api/fourDaysWeatherData';
 
-function InputWeather () {
+export default function InputWeather () {
 
     const [location, setLocation] = useState();
     const [weatherData, setWeatherData] = useState([]);
 
     const apiGetDetails = async () => {
-        const {status, data} = await twoHrWeatherData.get(`/environment/2-hour-weather-forecast`);
+        const {status, data} = await weatherData.get(`/environment/2-hour-weather-forecast`);
+        console.log(weatherData);
         if (status === 200) {
             console.log('apiGetDetails', data);
             setWeatherData();
@@ -55,4 +56,4 @@ function InputWeather () {
     )
 };
 
-export default InputWeather;
+// export default InputWeather;

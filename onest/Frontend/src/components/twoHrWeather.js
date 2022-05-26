@@ -1,7 +1,6 @@
 import twoHrWeatherData from '../api/twoHrWeatherData';
 
-
-const twoHr = async () => {
+export const twoHr = async () => {
 
     await twoHrWeatherData.get('v1/environment/2-hour-weather-forecast')
     .then((response) => {

@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function InputUEN () {
 
@@ -25,7 +25,7 @@ function InputUEN () {
 
     return (
         <div>
-            <form onSubmit={validateUEN}>
+            <form onSubmit={handleSubmit}>
                 <input
                 className='inputField'
                 type='text'
@@ -35,7 +35,7 @@ function InputUEN () {
                 />
                 <button
                 className='button'
-                onClick={handleSubmit}
+                onClick={validateUEN}
                 >Submit</button>
             </form>
         </div>
