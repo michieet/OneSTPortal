@@ -10,7 +10,7 @@ export default function InputWeather () {
     const [weatherData, setWeatherData] = useState([]);
 
     const apiGetDetails = async () => {
-        const {status, data} = await weatherData.get(`https://api.data.gov.sg/v1/environment/2-hour-weather-forecast`);
+        const {status, data} = await twoHrWeatherData.get(`v1/environment/2-hour-weather-forecast`);
         if (status === 200) {
             console.log('apiGetDetails', data);
             const d = data[0];
