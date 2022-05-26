@@ -9,7 +9,7 @@ function InputUEN () {
         setUEN(uen);
     };
 
-    const handleInput = (e) => {
+    const handleInput = () => {
         setUEN();
     };
 
