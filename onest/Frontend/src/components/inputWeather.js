@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import twoHrWeatherData from '../api/twoHrWeatherData';
-// import ViewData from '../components/viewData';
+import ViewData from '../components/viewData';
 // import oneDayWeatherData from '../api/oneDayWeatherData';
 // import fourDaysWeatherData from '../api/fourDaysWeatherData';
 
@@ -10,11 +10,16 @@ export default function InputWeather () {
     const [weatherData, setWeatherData] = useState([]);
 
     const apiGetDetails = async () => {
-        const {status, data} = await weatherData.get(`${twoHrWeatherData}`);
-        console.log(weatherData);
+        const {status, data} = await weatherData.get(`https://api.data.gov.sg/v1/environment/2-hour-weather-forecast`);
         if (status === 200) {
             console.log('apiGetDetails', data);
-            setWeatherData();
+            const d = data[0];
+            const temp= {
+                location: d.area,
+                forecast: d.forecast,
+                date: d.update_timestamp.split(" ")[0]
+            }
+            setWeatherData(temp);
         } else {
             console.log('Error');
         }
@@ -22,7 +27,7 @@ export default function InputWeather () {
 
     const handleSubmit = async () => {
         console.log('handleSubmit:');
-        setLocation(location);
+        setLocation();
     };
 
     const handleInput = () => {
@@ -37,20 +42,20 @@ export default function InputWeather () {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <input
                 className='inputField'
                 type='text'
                 placeholder='Enter location'
-                value={weatherData}
+                value={location}
                 onChange={handleInput}
                 />
                 <button
                 className='button'
-                // onClick={handleSubmit}
+                onClick={handleSubmit}
                 >Submit</button>
             </form>
-            
+            <ViewData data={weatherData}></ViewData>         
         </div>
     )
 };

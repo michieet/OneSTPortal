@@ -5,9 +5,9 @@ export default function ViewData(props) {
 
     return (
         <div>
-            <h2>Weather Data</h2>
-            <h4>{data.forecasts}</h4>
-            Location: {data.forecasts.area}
+            <h3>Weather Data</h3>
+            <h4>{data.location}</h4>
+            Forecast: {data.forecast}
 
         </div>
     )

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-function InputUEN () {
+export default function InputUEN () {
 
     const [uen, setUEN] = useState();
 
     const handleSubmit = async () => {
         console.log('handleSubmit:');
-        setUEN(uen);
+        setUEN();
     };
 
     const handleInput = () => {
@@ -16,14 +16,17 @@ function InputUEN () {
     function validateUEN(value) {
         let isUen = /((S|T)([a-zA-Z0-9]{9})|([0-3])(\d{8})([A-Z]))/g;
         if (value && !isUen.test(value)) {
-            alert("UEN form must be filled");
-            return false;
+            // alert("Please enter a valid UEN");
+            setUEN(()=>false);           
+        } else {
+            setUEN(()=>true);
+            alert("This is a valid UEN");
         }
     };
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={validateUEN}>
                 <input
                 className='inputField'
                 type='text'
@@ -33,11 +36,9 @@ function InputUEN () {
                 />
                 <button
                 className='button'
-                onClick={validateUEN}
+                onClick={handleSubmit}
                 >Submit</button>
             </form>
         </div>
     )
 };
-
-export default InputUEN;
